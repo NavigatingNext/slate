@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Slate’s Core Model Positioning</title>
+  <style>
+    :root{
+      --bg:#0b1020;
+      --card:#ffffff;
+      --muted:#5b657a;
+      --primary:#2457ff;
+      --green:#0a8f5b;
+      --red:#c0392b;
+      --blue-50:#eef4ff;
+      --green-50:#ecfbf4;
+      --red-50:#ffeceb;
+    }
+    html,body{margin:0;padding:0;background:var(--bg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#0b1020;}
+    .wrap{max-width:1080px;margin:24px auto;padding:24px;background:linear-gradient(180deg,#0f1630 0%, #0b1020 60%);border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    h1{color:#fff;text-align:center;margin:8px 0 20px;font-size:34px;letter-spacing:.2px}
+    .grid{display:grid;gap:16px}
+    .cards{grid-template-columns:1fr}
+    @media (min-width:880px){.cards{grid-template-columns:1fr 1fr}}
+    .card{background:var(--card);border-radius:16px;padding:18px 20px;box-shadow:0 6px 16px rgba(0,0,0,.08)}
+    .badge{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;padding:6px 10px;border-radius:999px}
+    .bad-red{background:var(--red-50,#ffeceb);color:var(--red)}
+    .bad-green{background:var(--green-50,#ecfbf4);color:var(--green)}
+    .section-title{font-size:18px;margin:6px 0 10px}
+    ul{margin:10px 0 0 20px;color:#222}
+    li{margin:6px 0}
+    .ecosys{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;align-items:center}
+    .ecosys .node{background:#fff;border-radius:14px;padding:14px;text-align:center;box-shadow:0 6px 16px rgba(0,0,0,.08)}
+    .ecosys .center{display:flex;flex-direction:column;align-items:center;gap:10px}
+    .slate{display:inline-flex;align-items:center;justify-content:center;width:140px;height:140px;border-radius:999px;background:radial-gradient(circle at 30% 30%, #4b6bff, #2640d6);color:#fff;font-weight:800;font-size:22px;box-shadow:0 8px 24px rgba(36,87,255,.35)}
+    .caption{font-size:12px;color:#334}
+    .down{display:flex;justify-content:center;margin:-6px 0 0 0}
+    .down svg{opacity:.6}
+    .sme{max-width:560px;margin:0 auto}
+    .value{background:#eef4ff;border:1px solid #dce7ff;text-align:center}
+    .value h3{margin:6px 0 8px;color:#1c3fa8}
+    .value p{margin:0 0 2px 0;font-size:18px;color:#1b2a52}
+    .footer{color:#9eb0ff;text-align:center;margin-top:18px;font-size:12px}
+    .pill{display:inline-block;margin:4px 6px;padding:6px 10px;border-radius:999px;background:#f3f4f7;color:#333;font-size:12px}
+    /* Simple icon bullets */
+    .ul-clean {list-style: none; margin: 10px 0 0 0; padding: 0;}
+    .ul-clean li {display: flex; align-items: start; gap: 8px; margin: 6px 0;}
+    .ul-clean li .dot {width: 10px; height: 10px; border-radius: 50%; margin-top: 7px;}
+    .ul-clean li .t {flex:1}
+    .red {background:#ff7b6b}
+    .green {background:#20c997}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Slate’s Core Model Positioning</h1>
+
+    <div class="grid cards">
+      <div class="card">
+        <div class="badge bad-red">Who We Aren’t</div>
+        <ul class="ul-clean">
+          <li><span class="dot red"></span><span class="t">Not a balance‑sheet lender (we don’t fund loans with our own capital)</span></li>
+          <li><span class="dot red"></span><span class="t">Not a warehouse or debt provider</span></li>
+          <li><span class="dot red"></span><span class="t">Not the credit decision‑maker (banks & lenders own that risk)</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="badge bad-green">Who We Are</div>
+        <ul class="ul-clean">
+          <li><span class="dot green"></span><span class="t">Provide integration rails (APIs, dashboards, widgets)</span></li>
+          <li><span class="dot green"></span><span class="t">Automate compliance & servicing (KYC/AML, collections, reporting)</span></li>
+          <li><span class="dot green"></span><span class="t">Supply underwriting infrastructure lenders can plug into</span></li>
+          <li><span class="dot green"></span><span class="t">Let platforms offer lending instantly without building a bank inside</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <div class="section-title" style="font-weight:700">Where We Sit — The Orchestration Layer</div>
+      <div class="ecosys">
+        <div class="node">
+          <div style="font-weight:700">Capital Providers</div>
+          <div class="caption">Banks, credit unions, private lenders</div>
+          <div>
+            <span class="pill">Credit policy</span>
+            <span class="pill">Funding</span>
+            <span class="pill">Risk</span>
+          </div>
+        </div>
+
+        <div class="center">
+          <div class="slate">Slate</div>
+          <div class="caption">Connects data → decisions → disbursement</div>
+        </div>
+
+        <div class="node">
+          <div style="font-weight:700">Platforms</div>
+          <div class="caption">Shopify, SaaS, marketplaces</div>
+          <div>
+            <span class="pill">Distribution</span>
+            <span class="pill">Data</span>
+            <span class="pill">UX</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="down">
+        <!-- Down arrow SVG -->
+        <svg width="20" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 3v14" stroke="#aab3c7" stroke-width="2" stroke-linecap="round"/>
+          <path d="M6 13l6 6 6-6" stroke="#aab3c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <div class="node sme" style="margin-top:6px">
+        <div style="font-weight:700">SMEs</div>
+        <div class="caption">Small & mid-sized businesses that need loans</div>
+      </div>
+    </div>
+
+    <div class="card value" style="margin-top:16px">
+      <h3>Value to SMEs</h3>
+      <p><strong>Same lenders, faster decisions, less friction → more growth.</strong></p>
+    </div>
+
+    <div class="footer">Drop this file into your repo (e.g., <em>docs/index.html</em> for GitHub Pages) and open it in a browser.</div>
+  </div>
+</body>
+</html>
